@@ -57,6 +57,14 @@ afterAll(async () => {
 });
 
 describe('Book CRUD API', () => {
+  test('returns CORS headers for API responses', async () => {
+    const response = await request(app).options('/books');
+
+    expect(response.status).toBe(204);
+    expect(response.headers['access-control-allow-origin']).toBe('*');
+    expect(response.headers['access-control-allow-methods']).toContain('GET');
+  });
+
   test('creates a book using /create/:name', async () => {
     const response = await request(app).post('/create/The%20Hobbit');
 
