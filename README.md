@@ -43,3 +43,10 @@ await fetch(`${API_BASE_URL}/create/${encodeURIComponent(name)}`, { method: 'POS
 await fetch(`${API_BASE_URL}/delete/${id}`, { method: 'DELETE' });
 await fetch(`${API_BASE_URL}/update/${id}?newName=${encodeURIComponent(newName)}`, { method: 'PUT' });
 ```
+
+
+Convert a CA certificate to Base64 on Windows (PowerShell):
+
+```powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\path\to\ca-certificate.crt")) |
+  Out-File -Encoding ascii C:\path\to\ca-base64.txt
