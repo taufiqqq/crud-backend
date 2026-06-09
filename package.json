@@ -1,0 +1,31 @@
+{
+  "name": "crud-backend",
+  "version": "1.0.0",
+  "description": "backend example for deployment",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --runInBand",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taufiqqq/crud-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/taufiqqq/crud-backend/issues"
+  },
+  "homepage": "https://github.com/taufiqqq/crud-backend#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "sqlite3": "^6.0.1"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2"
+  }
+}
