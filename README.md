@@ -1,6 +1,6 @@
 # crud-backend
 
-Simple Node.js backend for tracking books in an SQL database.
+Simple Node.js backend for tracking books in a MySQL database.
 
 ## Setup
 
@@ -15,9 +15,11 @@ npm install
 ```env
 PORT=3000
 DB_NAME=crud-example
+DB_HOST=127.0.0.1
+DB_PORT=3306
 DB_USER=your-db-user
 DB_PASSWORD=your-db-password
-DB_LINK=./crud-example.db
+# Optional: DB_LINK can be a full MySQL connection URL.
 ```
 
 3. Run the server:
