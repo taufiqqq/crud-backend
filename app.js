@@ -29,6 +29,7 @@ app.post('/create/:name', async (req, res) => {
     const result = await run('INSERT INTO books (name) VALUES (?)', [name]);
     res.status(201).json({ id: result.id, name });
   } catch (error) {
+    console.log('Error creating book:', error);
     res.status(500).json({ error: 'failed to create book' });
   }
 });
@@ -45,6 +46,7 @@ app.delete('/delete/:id', async (req, res) => {
 
     res.status(200).json({ success: true });
   } catch (error) {
+    console.log('Error deleting book:', error);
     res.status(500).json({ error: 'failed to delete book' });
   }
 });
@@ -68,6 +70,7 @@ app.put('/update/:id', async (req, res) => {
 
     res.status(200).json({ success: true, id: Number(id), name: newName });
   } catch (error) {
+    console.log('Error updating book:', error);
     res.status(500).json({ error: 'failed to update book' });
   }
 });
@@ -77,6 +80,7 @@ app.get('/books', async (req, res) => {
     const [rows] = await db.query('SELECT id, name FROM books');
     res.status(200).json(rows);
   } catch (error) {
+    console.log('Error fetching books:', error);
     res.status(500).json({ error: 'failed to fetch books' });
   }
 });
