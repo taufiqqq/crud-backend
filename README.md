@@ -50,3 +50,7 @@ Convert a CA certificate to Base64 on Windows (PowerShell):
 ```powershell
 [Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\path\to\ca-certificate.crt")) |
   Out-File -Encoding ascii C:\path\to\ca-base64.txt
+
+or for Mac
+
+base64 -i /path/to/ca-certificate.crt -o /path/to/ca-base64.txt
