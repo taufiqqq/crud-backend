@@ -1,5 +1,5 @@
 const express = require('express');
-const { initializeDatabase, run } = require('./db');
+const { initializeDatabase, run, db } = require('./db');
 
 const app = express();
 
@@ -56,6 +56,15 @@ app.put('/update/:id', async (req, res) => {
     res.status(200).json({ success: true, id: Number(id), name: newName });
   } catch (error) {
     res.status(500).json({ error: 'failed to update book' });
+  }
+});
+
+app.get('/books', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT id, name FROM books');
+    res.status(200).json(rows);
+  } catch (error) {
+    res.status(500).json({ error: 'failed to fetch books' });
   }
 });
 
